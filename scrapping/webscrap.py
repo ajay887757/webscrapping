@@ -11,9 +11,15 @@ def webscraping(self):
     htmlcontent = response.content
     soup = BeautifulSoup(htmlcontent, "html.parser")
 
-    for image in soup.find_all("img"):
-        imageData = image.get("src")
-        print(imageData)  # filtering Image data
+    product = soup.find_all("div", attrs={"class": "_331-kn"})
+    print(product)
+
+    # product = soup.find_all("div", class_="_331-kn")
+    # print(product)
+
+    # for image in soup.find_all("img"):
+    #     imageData = image.get("src")
+    #     print(imageData)  # filtering Image data
 
     # for link in soup.find_all("a"):
     #     data = link.get("href")

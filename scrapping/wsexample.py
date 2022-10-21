@@ -14,6 +14,7 @@ def WebScrapingRealExample():
     titles = []
     prices = []
     images = []
+    detailsArry=[]
 
     for d in soup.find_all("div", attrs={"class": "_2kHMtA"}):
         title = d.find("div", attrs={"class": "_4rR01T"})
@@ -25,16 +26,19 @@ def WebScrapingRealExample():
         image = d.find("img", attrs={"class": "_396cs4 _3exPp9"})
         ImageSrc = image.get("src")
         # print(ImageSrc)
+        details=d.find("div",attrs={"class":"col col-7-12"})
 
-        # aapending Data into list
-
+        detailsArry.append(details.text)
         titles.append(TitleString)
         prices.append(PriceString)
         images.append(ImageSrc)
+        # detailsArry.append(detailsString)
 
-    print(titles)
-    print(prices)
-    print(images)
+    # print(titles)
+    # print(prices)
+    # print(images)
+    # print(detailsArry)
+    # print(dl)
 
 
 WebScrapingRealExample()
